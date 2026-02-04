@@ -27,12 +27,12 @@
   "train_rows": 8000,
   "test_rows": 2000,
   "train_metrics": {
-    "partial_log_likelihood": -2236.595374942704,
-    "c_index": 0.9444866541233498
+    "partial_log_likelihood": -2530.3072965901156,
+    "c_index": 0.8478127591045347
   },
   "test_metrics": {
-    "partial_log_likelihood": -476.15493400931956,
-    "c_index": 0.9156034702730288
+    "partial_log_likelihood": -518.2298811278258,
+    "c_index": 0.8458280173513651
   },
   "woe_mode": true,
   "train_path": "analytics\\data_analysis\\artifacts\\03_preprocessing\\simulated_dataset_train_woe.csv",
@@ -40,8 +40,8 @@
   "survival_source": "event=default,time=synthetic_from_default",
   "optimizer": {
     "converged": true,
-    "iterations": 10,
+    "iterations": 9,
     "max_iter": 500,
-    "train_partial_log_likelihood": -2236.595374942704
+    "train_partial_log_likelihood": -2530.3072965901156
   }
 }

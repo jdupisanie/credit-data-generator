@@ -58,7 +58,7 @@
           {
             "band": "rent_private",
             "distribution_pct": 30.0,
-            "bad_rate_ratio": 1.61
+            "bad_rate_ratio": 1.6100
           },
           {
             "band": "rent_social",
