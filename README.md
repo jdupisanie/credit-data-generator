@@ -18,3 +18,4 @@ Synthetic credit-risk data generation and downstream modeling workflow (logistic
    - `3` for archiving outputs into a timestamped folder
 
 For detailed stage-by-stage paths, see `analytics/data_analysis/README.md`.
+For a full walkthrough, see `USER_GUIDE.md`.
