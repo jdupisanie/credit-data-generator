@@ -1,0 +1,5 @@
+{
+  "global_bad_rate_pct": 4.0,
+  "simulation_population": 10000,
+  "final_population": 10000
+}

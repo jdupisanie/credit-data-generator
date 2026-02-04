@@ -1,0 +1,1098 @@
+{
+  "source": {
+    "train_dataset": "analytics\\data_analysis\\artifacts\\01_datasets\\simulated_dataset_train.csv",
+    "target": "default"
+  },
+  "variables": {
+    "age_years": {
+      "total_rows": 8000,
+      "total_bad": 320,
+      "total_good": 7680,
+      "bands": [
+        {
+          "band": "18-24",
+          "count_total": 653,
+          "count_bad": 35,
+          "count_good": 618,
+          "dist_total": 0.081625,
+          "dist_bad": 0.109375,
+          "dist_good": 0.08046875,
+          "woe": 0.31729940751749364
+        },
+        {
+          "band": "25-34",
+          "count_total": 1797,
+          "count_bad": 108,
+          "count_good": 1689,
+          "dist_total": 0.224625,
+          "dist_bad": 0.3375,
+          "dist_good": 0.219921875,
+          "woe": 0.4296261696948357
+        },
+        {
+          "band": "35-44",
+          "count_total": 2085,
+          "count_bad": 54,
+          "count_good": 2031,
+          "dist_total": 0.260625,
+          "dist_bad": 0.16875,
+          "dist_good": 0.264453125,
+          "woe": -0.443265110889917
+        },
+        {
+          "band": "45-54",
+          "count_total": 1755,
+          "count_bad": 46,
+          "count_good": 1709,
+          "dist_total": 0.219375,
+          "dist_bad": 0.14375,
+          "dist_good": 0.22252604166666667,
+          "woe": -0.42943999361737945
+        },
+        {
+          "band": "55-64",
+          "count_total": 1237,
+          "count_bad": 48,
+          "count_good": 1189,
+          "dist_total": 0.154625,
+          "dist_bad": 0.15,
+          "dist_good": 0.15481770833333333,
+          "woe": -0.024660628930908864
+        },
+        {
+          "band": "65+",
+          "count_total": 473,
+          "count_bad": 29,
+          "count_good": 444,
+          "dist_total": 0.059125,
+          "dist_bad": 0.090625,
+          "dist_good": 0.0578125,
+          "woe": 0.46250411126048085
+        }
+      ]
+    },
+    "residential_status": {
+      "total_rows": 8000,
+      "total_bad": 320,
+      "total_good": 7680,
+      "bands": [
+        {
+          "band": "owner_no_mortgage",
+          "count_total": 1410,
+          "count_bad": 34,
+          "count_good": 1376,
+          "dist_total": 0.17625,
+          "dist_bad": 0.10625,
+          "dist_good": 0.17916666666666667,
+          "woe": -0.5112760976766818
+        },
+        {
+          "band": "owner_with_mortgage",
+          "count_total": 2562,
+          "count_bad": 84,
+          "count_good": 2478,
+          "dist_total": 0.32025,
+          "dist_bad": 0.2625,
+          "dist_good": 0.32265625,
+          "woe": -0.20359338022883447
+        },
+        {
+          "band": "rent_private",
+          "count_total": 2440,
+          "count_bad": 109,
+          "count_good": 2331,
+          "dist_total": 0.305,
+          "dist_bad": 0.340625,
+          "dist_good": 0.303515625,
+          "woe": 0.11672133587684612
+        },
+        {
+          "band": "rent_social",
+          "count_total": 968,
+          "count_bad": 60,
+          "count_good": 908,
+          "dist_total": 0.121,
+          "dist_bad": 0.1875,
+          "dist_good": 0.11822916666666666,
+          "woe": 0.4659123800692359
+        },
+        {
+          "band": "living_with_family_other",
+          "count_total": 620,
+          "count_bad": 33,
+          "count_good": 587,
+          "dist_total": 0.0775,
+          "dist_bad": 0.103125,
+          "dist_good": 0.07643229166666667,
+          "woe": 0.3107330956813727
+        }
+      ]
+    },
+    "time_at_address_months": {
+      "total_rows": 8000,
+      "total_bad": 320,
+      "total_good": 7680,
+      "bands": [
+        {
+          "band": "<6",
+          "count_total": 778,
+          "count_bad": 64,
+          "count_good": 714,
+          "dist_total": 0.09725,
+          "dist_bad": 0.2,
+          "dist_good": 0.09296875,
+          "woe": 0.7701461293004707
+        },
+        {
+          "band": "6-12",
+          "count_total": 1219,
+          "count_bad": 69,
+          "count_good": 1150,
+          "dist_total": 0.152375,
+          "dist_bad": 0.215625,
+          "dist_good": 0.14973958333333334,
+          "woe": 0.3684387459639919
+        },
+        {
+          "band": "12-24",
+          "count_total": 1622,
+          "count_bad": 65,
+          "count_good": 1557,
+          "dist_total": 0.20275,
+          "dist_bad": 0.203125,
+          "dist_good": 0.202734375,
+          "woe": 0.00627679484826408
+        },
+        {
+          "band": "24-60",
+          "count_total": 2433,
+          "count_bad": 79,
+          "count_good": 2354,
+          "dist_total": 0.304125,
+          "dist_bad": 0.246875,
+          "dist_good": 0.3065104166666667,
+          "woe": -0.21326274515465693
+        },
+        {
+          "band": ">60",
+          "count_total": 1948,
+          "count_bad": 43,
+          "count_good": 1905,
+          "dist_total": 0.2435,
+          "dist_bad": 0.134375,
+          "dist_good": 0.248046875,
+          "woe": -0.6046748793506105
+        }
+      ]
+    },
+    "employment_status": {
+      "total_rows": 8000,
+      "total_bad": 320,
+      "total_good": 7680,
+      "bands": [
+        {
+          "band": "permanent",
+          "count_total": 4933,
+          "count_bad": 154,
+          "count_good": 4779,
+          "dist_total": 0.616625,
+          "dist_bad": 0.48125,
+          "dist_good": 0.622265625,
+          "woe": -0.256833218297351
+        },
+        {
+          "band": "temporary_contract",
+          "count_total": 1140,
+          "count_bad": 50,
+          "count_good": 1090,
+          "dist_total": 0.1425,
+          "dist_bad": 0.15625,
+          "dist_good": 0.14192708333333334,
+          "woe": 0.10264565350829637
+        },
+        {
+          "band": "self_employed",
+          "count_total": 943,
+          "count_bad": 38,
+          "count_good": 905,
+          "dist_total": 0.117875,
+          "dist_bad": 0.11875,
+          "dist_good": 0.11783854166666667,
+          "woe": 0.017234866838936633
+        },
+        {
+          "band": "retired",
+          "count_total": 556,
+          "count_bad": 21,
+          "count_good": 535,
+          "dist_total": 0.0695,
+          "dist_bad": 0.065625,
+          "dist_good": 0.06966145833333333,
+          "woe": -0.04008405188552047
+        },
+        {
+          "band": "unemployed_other",
+          "count_total": 428,
+          "count_bad": 57,
+          "count_good": 371,
+          "dist_total": 0.0535,
+          "dist_bad": 0.178125,
+          "dist_good": 0.04830729166666667,
+          "woe": 1.309299986514157
+        }
+      ]
+    },
+    "time_with_employer_months": {
+      "total_rows": 8000,
+      "total_bad": 320,
+      "total_good": 7680,
+      "bands": [
+        {
+          "band": "<6",
+          "count_total": 1004,
+          "count_bad": 75,
+          "count_good": 929,
+          "dist_total": 0.1255,
+          "dist_bad": 0.234375,
+          "dist_good": 0.12096354166666666,
+          "woe": 0.6645497519621464
+        },
+        {
+          "band": "6-12",
+          "count_total": 1239,
+          "count_bad": 67,
+          "count_good": 1172,
+          "dist_total": 0.154875,
+          "dist_bad": 0.209375,
+          "dist_good": 0.15260416666666668,
+          "woe": 0.3202980004267157
+        },
+        {
+          "band": "12-24",
+          "count_total": 1450,
+          "count_bad": 60,
+          "count_good": 1390,
+          "dist_total": 0.18125,
+          "dist_bad": 0.1875,
+          "dist_good": 0.18098958333333334,
+          "woe": 0.04028859423144239
+        },
+        {
+          "band": "24-60",
+          "count_total": 2197,
+          "count_bad": 57,
+          "count_good": 2140,
+          "dist_total": 0.274625,
+          "dist_bad": 0.178125,
+          "dist_good": 0.2786458333333333,
+          "woe": -0.44194587491303006
+        },
+        {
+          "band": ">60",
+          "count_total": 2110,
+          "count_bad": 61,
+          "count_good": 2049,
+          "dist_total": 0.26375,
+          "dist_bad": 0.190625,
+          "dist_good": 0.266796875,
+          "woe": -0.3312500622632539
+        }
+      ]
+    },
+    "gross_monthly_income_eur": {
+      "total_rows": 8000,
+      "total_bad": 320,
+      "total_good": 7680,
+      "bands": [
+        {
+          "band": "<1500",
+          "count_total": 1018,
+          "count_bad": 72,
+          "count_good": 946,
+          "dist_total": 0.12725,
+          "dist_bad": 0.225,
+          "dist_good": 0.12317708333333334,
+          "woe": 0.6058794940799177
+        },
+        {
+          "band": "1500-2500",
+          "count_total": 2300,
+          "count_bad": 100,
+          "count_good": 2200,
+          "dist_total": 0.2875,
+          "dist_bad": 0.3125,
+          "dist_good": 0.2864583333333333,
+          "woe": 0.08878174411665025
+        },
+        {
+          "band": "2500-3500",
+          "count_total": 2261,
+          "count_bad": 81,
+          "count_good": 2180,
+          "dist_total": 0.282625,
+          "dist_bad": 0.253125,
+          "dist_good": 0.2838541666666667,
+          "woe": -0.11164256416733818
+        },
+        {
+          "band": "3500-5000",
+          "count_total": 1612,
+          "count_bad": 50,
+          "count_good": 1562,
+          "dist_total": 0.2015,
+          "dist_bad": 0.15625,
+          "dist_good": 0.20338541666666668,
+          "woe": -0.25700514246057643
+        },
+        {
+          "band": ">5000",
+          "count_total": 809,
+          "count_bad": 17,
+          "count_good": 792,
+          "dist_total": 0.101125,
+          "dist_bad": 0.053125,
+          "dist_good": 0.103125,
+          "woe": -0.6379277219533014
+        }
+      ]
+    },
+    "net_monthly_income_eur": {
+      "total_rows": 8000,
+      "total_bad": 320,
+      "total_good": 7680,
+      "bands": [
+        {
+          "band": "<1200",
+          "count_total": 1187,
+          "count_bad": 83,
+          "count_good": 1104,
+          "dist_total": 0.148375,
+          "dist_bad": 0.259375,
+          "dist_good": 0.14375,
+          "woe": 0.5927625118653038
+        },
+        {
+          "band": "1200-1800",
+          "count_total": 2626,
+          "count_bad": 132,
+          "count_good": 2494,
+          "dist_total": 0.32825,
+          "dist_bad": 0.4125,
+          "dist_good": 0.32473958333333336,
+          "woe": 0.2398029609938508
+        },
+        {
+          "band": "1800-2500",
+          "count_total": 2314,
+          "count_bad": 66,
+          "count_good": 2248,
+          "dist_total": 0.28925,
+          "dist_bad": 0.20625,
+          "dist_good": 0.29270833333333335,
+          "woe": -0.3457527556802875
+        },
+        {
+          "band": "2500-3500",
+          "count_total": 1474,
+          "count_bad": 29,
+          "count_good": 1445,
+          "dist_total": 0.18425,
+          "dist_bad": 0.090625,
+          "dist_good": 0.18815104166666666,
+          "woe": -0.7167563952419607
+        },
+        {
+          "band": ">3500",
+          "count_total": 399,
+          "count_bad": 10,
+          "count_good": 389,
+          "dist_total": 0.049875,
+          "dist_bad": 0.03125,
+          "dist_good": 0.05065104166666667,
+          "woe": -0.43842470527865934
+        }
+      ]
+    },
+    "debt_to_income_ratio": {
+      "total_rows": 8000,
+      "total_bad": 320,
+      "total_good": 7680,
+      "bands": [
+        {
+          "band": "<0.20",
+          "count_total": 1437,
+          "count_bad": 38,
+          "count_good": 1399,
+          "dist_total": 0.179625,
+          "dist_bad": 0.11875,
+          "dist_good": 0.18216145833333333,
+          "woe": -0.41814816479310346
+        },
+        {
+          "band": "0.20-0.35",
+          "count_total": 2387,
+          "count_bad": 74,
+          "count_good": 2313,
+          "dist_total": 0.298375,
+          "dist_bad": 0.23125,
+          "dist_good": 0.301171875,
+          "woe": -0.26065378009287443
+        },
+        {
+          "band": "0.35-0.50",
+          "count_total": 2233,
+          "count_bad": 78,
+          "count_good": 2155,
+          "dist_total": 0.279125,
+          "dist_bad": 0.24375,
+          "dist_good": 0.2805989583333333,
+          "woe": -0.13761546653016035
+        },
+        {
+          "band": "0.50-0.65",
+          "count_total": 1288,
+          "count_bad": 83,
+          "count_good": 1205,
+          "dist_total": 0.161,
+          "dist_bad": 0.259375,
+          "dist_good": 0.15690104166666666,
+          "woe": 0.5052608371042501
+        },
+        {
+          "band": ">0.65",
+          "count_total": 655,
+          "count_bad": 47,
+          "count_good": 608,
+          "dist_total": 0.081875,
+          "dist_bad": 0.146875,
+          "dist_good": 0.07916666666666666,
+          "woe": 0.6247967014816798
+        }
+      ]
+    },
+    "disposable_income_eur": {
+      "total_rows": 8000,
+      "total_bad": 320,
+      "total_good": 7680,
+      "bands": [
+        {
+          "band": "<0",
+          "count_total": 447,
+          "count_bad": 59,
+          "count_good": 388,
+          "dist_total": 0.055875,
+          "dist_bad": 0.184375,
+          "dist_good": 0.050520833333333334,
+          "woe": 1.2987470456125478
+        },
+        {
+          "band": "0-300",
+          "count_total": 1448,
+          "count_bad": 85,
+          "count_good": 1363,
+          "dist_total": 0.181,
+          "dist_bad": 0.265625,
+          "dist_good": 0.17747395833333332,
+          "woe": 0.4057700765257372
+        },
+        {
+          "band": "300-700",
+          "count_total": 2541,
+          "count_bad": 97,
+          "count_good": 2444,
+          "dist_total": 0.317625,
+          "dist_bad": 0.303125,
+          "dist_good": 0.3182291666666667,
+          "woe": -0.0466796011462327
+        },
+        {
+          "band": "700-1200",
+          "count_total": 2310,
+          "count_bad": 56,
+          "count_good": 2254,
+          "dist_total": 0.28875,
+          "dist_bad": 0.175,
+          "dist_good": 0.29348958333333336,
+          "woe": -0.5113789568400777
+        },
+        {
+          "band": ">1200",
+          "count_total": 1254,
+          "count_bad": 23,
+          "count_good": 1231,
+          "dist_total": 0.15675,
+          "dist_bad": 0.071875,
+          "dist_good": 0.16028645833333333,
+          "woe": -0.7839238935418134
+        }
+      ]
+    },
+    "num_active_credit_accounts": {
+      "total_rows": 8000,
+      "total_bad": 320,
+      "total_good": 7680,
+      "bands": [
+        {
+          "band": "0-1",
+          "count_total": 1114,
+          "count_bad": 66,
+          "count_good": 1048,
+          "dist_total": 0.13925,
+          "dist_bad": 0.20625,
+          "dist_good": 0.13645833333333332,
+          "woe": 0.41715000018849985
+        },
+        {
+          "band": "2-3",
+          "count_total": 2731,
+          "count_bad": 90,
+          "count_good": 2641,
+          "dist_total": 0.341375,
+          "dist_bad": 0.28125,
+          "dist_good": 0.3438802083333333,
+          "woe": -0.19868846302982404
+        },
+        {
+          "band": "4-5",
+          "count_total": 2251,
+          "count_bad": 74,
+          "count_good": 2177,
+          "dist_total": 0.281375,
+          "dist_bad": 0.23125,
+          "dist_good": 0.28346354166666665,
+          "woe": -0.20006968047247795
+        },
+        {
+          "band": "6-8",
+          "count_total": 1438,
+          "count_bad": 66,
+          "count_good": 1372,
+          "dist_total": 0.17975,
+          "dist_bad": 0.20625,
+          "dist_good": 0.17864583333333334,
+          "woe": 0.14787667714678882
+        },
+        {
+          "band": ">8",
+          "count_total": 466,
+          "count_bad": 24,
+          "count_good": 442,
+          "dist_total": 0.05825,
+          "dist_bad": 0.075,
+          "dist_good": 0.05755208333333333,
+          "woe": 0.28129655597136305
+        }
+      ]
+    },
+    "total_outstanding_balance_eur": {
+      "total_rows": 8000,
+      "total_bad": 320,
+      "total_good": 7680,
+      "bands": [
+        {
+          "band": "<2000",
+          "count_total": 1454,
+          "count_bad": 34,
+          "count_good": 1420,
+          "dist_total": 0.18175,
+          "dist_bad": 0.10625,
+          "dist_good": 0.18489583333333334,
+          "woe": -0.5427409743882625
+        },
+        {
+          "band": "2000-5000",
+          "count_total": 1933,
+          "count_bad": 62,
+          "count_good": 1871,
+          "dist_total": 0.241625,
+          "dist_bad": 0.19375,
+          "dist_good": 0.24361979166666667,
+          "woe": -0.22426506773346191
+        },
+        {
+          "band": "5000-10000",
+          "count_total": 2103,
+          "count_bad": 88,
+          "count_good": 2015,
+          "dist_total": 0.262875,
+          "dist_bad": 0.275,
+          "dist_good": 0.2623697916666667,
+          "woe": 0.049443872325329416
+        },
+        {
+          "band": "10000-20000",
+          "count_total": 1573,
+          "count_bad": 70,
+          "count_good": 1503,
+          "dist_total": 0.196625,
+          "dist_bad": 0.21875,
+          "dist_good": 0.195703125,
+          "woe": 0.11512561025830541
+        },
+        {
+          "band": ">20000",
+          "count_total": 937,
+          "count_bad": 66,
+          "count_good": 871,
+          "dist_total": 0.117125,
+          "dist_bad": 0.20625,
+          "dist_good": 0.11341145833333334,
+          "woe": 0.6020499855703989
+        }
+      ]
+    },
+    "credit_utilisation_ratio": {
+      "total_rows": 8000,
+      "total_bad": 320,
+      "total_good": 7680,
+      "bands": [
+        {
+          "band": "<0.20",
+          "count_total": 1762,
+          "count_bad": 51,
+          "count_good": 1711,
+          "dist_total": 0.22025,
+          "dist_bad": 0.159375,
+          "dist_good": 0.22278645833333333,
+          "woe": -0.3284797474318836
+        },
+        {
+          "band": "0.20-0.40",
+          "count_total": 2230,
+          "count_bad": 65,
+          "count_good": 2165,
+          "dist_total": 0.27875,
+          "dist_bad": 0.203125,
+          "dist_good": 0.2819010416666667,
+          "woe": -0.323292515144809
+        },
+        {
+          "band": "0.40-0.60",
+          "count_total": 1961,
+          "count_bad": 74,
+          "count_good": 1887,
+          "dist_total": 0.245125,
+          "dist_bad": 0.23125,
+          "dist_good": 0.245703125,
+          "woe": -0.0571454528689999
+        },
+        {
+          "band": "0.60-0.80",
+          "count_total": 1295,
+          "count_bad": 60,
+          "count_good": 1235,
+          "dist_total": 0.161875,
+          "dist_bad": 0.1875,
+          "dist_good": 0.16080729166666666,
+          "woe": 0.158476242476797
+        },
+        {
+          "band": ">0.80",
+          "count_total": 752,
+          "count_bad": 70,
+          "count_good": 682,
+          "dist_total": 0.094,
+          "dist_bad": 0.21875,
+          "dist_good": 0.08880208333333334,
+          "woe": 0.9049140856277743
+        }
+      ]
+    },
+    "num_unsecured_loans": {
+      "total_rows": 8000,
+      "total_bad": 320,
+      "total_good": 7680,
+      "bands": [
+        {
+          "band": "0",
+          "count_total": 1453,
+          "count_bad": 42,
+          "count_good": 1411,
+          "dist_total": 0.181625,
+          "dist_bad": 0.13125,
+          "dist_good": 0.18372395833333333,
+          "woe": -0.32784026889450685
+        },
+        {
+          "band": "1",
+          "count_total": 2908,
+          "count_bad": 80,
+          "count_good": 2828,
+          "dist_total": 0.3635,
+          "dist_bad": 0.25,
+          "dist_good": 0.36822916666666666,
+          "woe": -0.3841807274900267
+        },
+        {
+          "band": "2",
+          "count_total": 2076,
+          "count_bad": 100,
+          "count_good": 1976,
+          "dist_total": 0.2595,
+          "dist_bad": 0.3125,
+          "dist_good": 0.25729166666666664,
+          "woe": 0.1961387476310563
+        },
+        {
+          "band": "3",
+          "count_total": 1074,
+          "count_bad": 51,
+          "count_good": 1023,
+          "dist_total": 0.13425,
+          "dist_bad": 0.159375,
+          "dist_good": 0.133203125,
+          "woe": 0.18566230543701223
+        },
+        {
+          "band": ">=4",
+          "count_total": 489,
+          "count_bad": 47,
+          "count_good": 442,
+          "dist_total": 0.061125,
+          "dist_bad": 0.146875,
+          "dist_good": 0.05755208333333333,
+          "woe": 0.9433531494612772
+        }
+      ]
+    },
+    "num_accounts_30dpd_last12m": {
+      "total_rows": 8000,
+      "total_bad": 320,
+      "total_good": 7680,
+      "bands": [
+        {
+          "band": "0",
+          "count_total": 6067,
+          "count_bad": 131,
+          "count_good": 5936,
+          "dist_total": 0.758375,
+          "dist_bad": 0.409375,
+          "dist_good": 0.7729166666666667,
+          "woe": -0.6348042586193616
+        },
+        {
+          "band": "1",
+          "count_total": 1114,
+          "count_bad": 80,
+          "count_good": 1034,
+          "dist_total": 0.13925,
+          "dist_bad": 0.25,
+          "dist_good": 0.13463541666666667,
+          "woe": 0.6216475901075861
+        },
+        {
+          "band": "2",
+          "count_total": 496,
+          "count_bad": 62,
+          "count_good": 434,
+          "dist_total": 0.062,
+          "dist_bad": 0.19375,
+          "dist_good": 0.05651041666666667,
+          "woe": 1.2360345149055751
+        },
+        {
+          "band": ">=3",
+          "count_total": 323,
+          "count_bad": 47,
+          "count_good": 276,
+          "dist_total": 0.040375,
+          "dist_bad": 0.146875,
+          "dist_good": 0.0359375,
+          "woe": 1.413582792946872
+        }
+      ]
+    },
+    "max_delinquency_last12m": {
+      "total_rows": 8000,
+      "total_bad": 320,
+      "total_good": 7680,
+      "bands": [
+        {
+          "band": "current",
+          "count_total": 6205,
+          "count_bad": 119,
+          "count_good": 6086,
+          "dist_total": 0.775625,
+          "dist_bad": 0.371875,
+          "dist_good": 0.7924479166666667,
+          "woe": -0.7554482086094197
+        },
+        {
+          "band": "30dpd",
+          "count_total": 952,
+          "count_bad": 66,
+          "count_good": 886,
+          "dist_total": 0.119,
+          "dist_bad": 0.20625,
+          "dist_good": 0.11536458333333334,
+          "woe": 0.584984725016212
+        },
+        {
+          "band": "60dpd",
+          "count_total": 499,
+          "count_bad": 67,
+          "count_good": 432,
+          "dist_total": 0.062375,
+          "dist_bad": 0.209375,
+          "dist_good": 0.05625,
+          "woe": 1.317609174375216
+        },
+        {
+          "band": "90dpd_plus",
+          "count_total": 344,
+          "count_bad": 68,
+          "count_good": 276,
+          "dist_total": 0.043,
+          "dist_bad": 0.2125,
+          "dist_good": 0.0359375,
+          "woe": 1.7796868271744561
+        }
+      ]
+    },
+    "months_since_last_delinquency": {
+      "total_rows": 8000,
+      "total_bad": 320,
+      "total_good": 7680,
+      "bands": [
+        {
+          "band": "never",
+          "count_total": 4672,
+          "count_bad": 79,
+          "count_good": 4593,
+          "dist_total": 0.584,
+          "dist_bad": 0.246875,
+          "dist_good": 0.598046875,
+          "woe": -0.8815766151825689
+        },
+        {
+          "band": "<6",
+          "count_total": 805,
+          "count_bad": 104,
+          "count_good": 701,
+          "dist_total": 0.100625,
+          "dist_bad": 0.325,
+          "dist_good": 0.09127604166666667,
+          "woe": 1.2710300747310161
+        },
+        {
+          "band": "6-12",
+          "count_total": 921,
+          "count_bad": 77,
+          "count_good": 844,
+          "dist_total": 0.115125,
+          "dist_bad": 0.240625,
+          "dist_good": 0.10989583333333333,
+          "woe": 0.7865971029801127
+        },
+        {
+          "band": "12-24",
+          "count_total": 778,
+          "count_bad": 34,
+          "count_good": 744,
+          "dist_total": 0.09725,
+          "dist_bad": 0.10625,
+          "dist_good": 0.096875,
+          "woe": 0.10331037478191644
+        },
+        {
+          "band": ">24",
+          "count_total": 824,
+          "count_bad": 26,
+          "count_good": 798,
+          "dist_total": 0.103,
+          "dist_bad": 0.08125,
+          "dist_good": 0.10390625,
+          "woe": -0.23052633179422458
+        }
+      ]
+    },
+    "worst_ever_delinquency": {
+      "total_rows": 8000,
+      "total_bad": 320,
+      "total_good": 7680,
+      "bands": [
+        {
+          "band": "none",
+          "count_total": 5014,
+          "count_bad": 127,
+          "count_good": 4887,
+          "dist_total": 0.62675,
+          "dist_bad": 0.396875,
+          "dist_good": 0.636328125,
+          "woe": -0.47125593682647443
+        },
+        {
+          "band": "30dpd",
+          "count_total": 1256,
+          "count_bad": 43,
+          "count_good": 1213,
+          "dist_total": 0.157,
+          "dist_bad": 0.134375,
+          "dist_good": 0.15794270833333332,
+          "woe": -0.15343918420335165
+        },
+        {
+          "band": "60dpd",
+          "count_total": 815,
+          "count_bad": 61,
+          "count_good": 754,
+          "dist_total": 0.101875,
+          "dist_bad": 0.190625,
+          "dist_good": 0.09817708333333333,
+          "woe": 0.6680457994732346
+        },
+        {
+          "band": "90dpd_plus",
+          "count_total": 915,
+          "count_bad": 89,
+          "count_good": 826,
+          "dist_total": 0.114375,
+          "dist_bad": 0.278125,
+          "dist_good": 0.10755208333333334,
+          "woe": 0.9521026108883969
+        }
+      ]
+    },
+    "credit_history_length_months": {
+      "total_rows": 8000,
+      "total_bad": 320,
+      "total_good": 7680,
+      "bands": [
+        {
+          "band": "<12",
+          "count_total": 658,
+          "count_bad": 53,
+          "count_good": 605,
+          "dist_total": 0.08225,
+          "dist_bad": 0.165625,
+          "dist_good": 0.07877604166666667,
+          "woe": 0.7486909937774799
+        },
+        {
+          "band": "12-36",
+          "count_total": 1776,
+          "count_bad": 65,
+          "count_good": 1711,
+          "dist_total": 0.222,
+          "dist_bad": 0.203125,
+          "dist_good": 0.22278645833333333,
+          "woe": -0.08801141246036767
+        },
+        {
+          "band": "36-72",
+          "count_total": 2233,
+          "count_bad": 93,
+          "count_good": 2140,
+          "dist_total": 0.279125,
+          "dist_bad": 0.290625,
+          "dist_good": 0.2786458333333333,
+          "woe": 0.044230613578306516
+        },
+        {
+          "band": "72-120",
+          "count_total": 2069,
+          "count_bad": 65,
+          "count_good": 2004,
+          "dist_total": 0.258625,
+          "dist_bad": 0.203125,
+          "dist_good": 0.2609375,
+          "woe": -0.24603588657268946
+        },
+        {
+          "band": ">120",
+          "count_total": 1264,
+          "count_bad": 44,
+          "count_good": 1220,
+          "dist_total": 0.158,
+          "dist_bad": 0.1375,
+          "dist_good": 0.15885416666666666,
+          "woe": -0.1364627977921542
+        }
+      ]
+    },
+    "num_credit_enquiries_last6m": {
+      "total_rows": 8000,
+      "total_bad": 320,
+      "total_good": 7680,
+      "bands": [
+        {
+          "band": "0",
+          "count_total": 3346,
+          "count_bad": 100,
+          "count_good": 3246,
+          "dist_total": 0.41825,
+          "dist_bad": 0.3125,
+          "dist_good": 0.42265625,
+          "woe": -0.30011114158074503
+        },
+        {
+          "band": "1",
+          "count_total": 2245,
+          "count_bad": 58,
+          "count_good": 2187,
+          "dist_total": 0.280625,
+          "dist_bad": 0.18125,
+          "dist_good": 0.284765625,
+          "woe": -0.4464239611252928
+        },
+        {
+          "band": "2",
+          "count_total": 1279,
+          "count_bad": 68,
+          "count_good": 1211,
+          "dist_total": 0.159875,
+          "dist_bad": 0.2125,
+          "dist_good": 0.15768229166666667,
+          "woe": 0.3022831078802653
+        },
+        {
+          "band": "3",
+          "count_total": 649,
+          "count_bad": 36,
+          "count_good": 613,
+          "dist_total": 0.081125,
+          "dist_bad": 0.1125,
+          "dist_good": 0.07981770833333333,
+          "woe": 0.35319589930614564
+        },
+        {
+          "band": ">=4",
+          "count_total": 481,
+          "count_bad": 58,
+          "count_good": 423,
+          "dist_total": 0.060125,
+          "dist_bad": 0.18125,
+          "dist_good": 0.055078125,
+          "woe": 1.1955371430143678
+        }
+      ]
+    },
+    "adverse_events_flag": {
+      "total_rows": 8000,
+      "total_bad": 320,
+      "total_good": 7680,
+      "bands": [
+        {
+          "band": "no",
+          "count_total": 6969,
+          "count_bad": 191,
+          "count_good": 6778,
+          "dist_total": 0.871125,
+          "dist_bad": 0.596875,
+          "dist_good": 0.8825520833333333,
+          "woe": -0.39155940603007733
+        },
+        {
+          "band": "yes",
+          "count_total": 1031,
+          "count_bad": 129,
+          "count_good": 902,
+          "dist_total": 0.128875,
+          "dist_bad": 0.403125,
+          "dist_good": 0.11744791666666667,
+          "woe": 1.2335760938012226
+        }
+      ]
+    }
+  }
+}

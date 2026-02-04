@@ -1,0 +1,20 @@
+{
+  "cox_all_features": {
+    "tn": 1698,
+    "fp": 222,
+    "fn": 12,
+    "tp": 68
+  },
+  "logit_all_features": {
+    "tn": 1631,
+    "fp": 289,
+    "fn": 10,
+    "tp": 70
+  },
+  "nn_all_features": {
+    "tn": 1645,
+    "fp": 275,
+    "fn": 16,
+    "tp": 64
+  }
+}
