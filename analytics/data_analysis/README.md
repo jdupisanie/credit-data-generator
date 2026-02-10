@@ -36,7 +36,7 @@ This folder is organized as a simple pipeline so each stage writes to a dedicate
 
 ## Notes
 
-- Simulation output remains in `outputs/simulator/`.
+- Simulation output is written to `analytics/data_analysis/artifacts/01_datasets/`.
 - Training scripts append model runs to:
   - `analytics/data_analysis/artifacts/05_model_comparison/model_registry.csv`
 - Defaults in scripts now point to this staged structure.

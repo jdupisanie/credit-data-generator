@@ -105,7 +105,7 @@ If validation fails, save is blocked and errors are shown.
 
 ## 4) Where outputs go
 
-- Raw simulated data: `outputs/simulator/`
+- Raw simulated data: `analytics/data_analysis/artifacts/01_datasets/`
 - Analysis/model outputs: `analytics/data_analysis/artifacts/`
   - `00_documentation/`
   - `01_datasets/`
@@ -137,4 +137,3 @@ If validation fails, save is blocked and errors are shown.
   - Make sure model metadata/artifacts exist under `analytics/data_analysis/artifacts/04_models/`
 - **Validation fails in editor**
   - Fix reported fields (especially distribution totals and train/test percentages)
-

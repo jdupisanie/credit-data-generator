@@ -25,6 +25,9 @@ def parse_args() -> argparse.Namespace:
 
 def _collect_output_paths() -> list[Path]:
     legacy_patterns = [
+        "outputs/simulator/simulated_dataset.csv",
+        "outputs/simulator/simulated_metadata.json",
+        "analytics/data_analysis/01_datasets",
         "analytics/data_analysis/simulated_dataset_train.csv",
         "analytics/data_analysis/simulated_dataset_test.csv",
         "analytics/data_analysis/simulated_dataset_train_woe.csv",
@@ -35,7 +38,6 @@ def _collect_output_paths() -> list[Path]:
     ]
 
     paths = [
-        Path("outputs") / "simulator",
         Path("analytics") / "data_analysis" / "artifacts",
         Path("analytics") / "data_analysis" / "models",
         Path("analytics") / "data_analysis" / "model_comparison",

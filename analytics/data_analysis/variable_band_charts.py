@@ -15,13 +15,13 @@ def main() -> None:
     output_dir = Path("analytics") / "data_analysis" / "artifacts" / "06_visualizations"
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    dataset_path = Path("outputs") / "simulator" / "simulated_dataset.csv"
-    metadata_path = Path("outputs") / "simulator" / "simulated_metadata.json"
+    dataset_path = Path("analytics") / "data_analysis" / "artifacts" / "01_datasets" / "simulated_dataset_total.csv"
+    metadata_path = Path("analytics") / "data_analysis" / "artifacts" / "01_datasets" / "simulated_metadata.json"
 
     if not dataset_path.exists():
-        raise FileNotFoundError("Missing outputs/simulator/simulated_dataset.csv. Run main.py first.")
+        raise FileNotFoundError("Missing analytics/data_analysis/artifacts/01_datasets/simulated_dataset_total.csv. Run main.py first.")
     if not metadata_path.exists():
-        raise FileNotFoundError("Missing outputs/simulator/simulated_metadata.json. Run main.py first.")
+        raise FileNotFoundError("Missing analytics/data_analysis/artifacts/01_datasets/simulated_metadata.json. Run main.py first.")
 
     df = pd.read_csv(dataset_path)
     metadata = json.loads(metadata_path.read_text(encoding="utf-8"))

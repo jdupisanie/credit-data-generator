@@ -11,7 +11,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--input",
         type=Path,
-        default=Path("outputs") / "simulator" / "simulated_dataset.csv",
+        default=Path("analytics") / "data_analysis" / "artifacts" / "01_datasets" / "simulated_dataset_total.csv",
         help="Path to the input CSV.",
     )
     parser.add_argument(

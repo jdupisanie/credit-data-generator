@@ -9,6 +9,7 @@
 - Factory reset for variables via `input_parameters/variables.factory.json`
 - API routes to validate and save configuration (with `.bak` backup files)
 - API routes to run pipeline stages asynchronously and stream job logs
+- Artifact browser with category/search filters and direct file download links
 
 ## Start the app
 From the project root:
@@ -27,3 +28,6 @@ Then open: `http://127.0.0.1:8000`
 - `POST /api/pipeline/jobs`
 - `GET /api/pipeline/jobs`
 - `GET /api/pipeline/jobs/{job_id}`
+- `GET /api/pipeline/jobs/{job_id}/artifacts`
+- `GET /api/artifacts`
+- `GET /api/artifacts/download?path=...`

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UI Help - Credit Risk Pipeline</title>
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body>
+    <main class="layout help-layout">
+      <header class="hero help-hero">
+        <div class="hero-head">
+          <h1>UI Help Guide</h1>
+          <a class="btn btn-secondary" href="/">Back To UI</a>
+        </div>
+        <p>Reference guide for each section of the Credit Risk Pipeline Control Center.</p>
+      </header>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>How To Use The UI</h2>
+        </div>
+        <p class="muted">
+          Recommended flow: 1) adjust settings, 2) validate, 3) save, 4) run Data Creation,
+          5) run Modeling, 6) review and download artefacts.
+        </p>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Section By Section</h2>
+        </div>
+        <div class="help-grid">
+          <article class="help-card">
+            <h3>Global Parameters</h3>
+            <p>Controls overall simulation scale and split behavior.</p>
+            <ul class="help-list">
+              <li><strong>Simulation Population</strong>: total number of rows to generate.</li>
+              <li><strong>Global Bad Rate (%)</strong>: target overall default rate in the generated dataset.</li>
+              <li><strong>Training Set Size (%)</strong> and <strong>Test Set Size (%)</strong>: must add to 100.</li>
+            </ul>
+            <p>
+              Use <strong>Validate</strong> before <strong>Save</strong> to catch issues such as invalid totals.
+            </p>
+          </article>
+
+          <article class="help-card">
+            <h3>Variables</h3>
+            <p>Define how each feature is distributed and how risky each band is.</p>
+            <ul class="help-list">
+              <li>Select one variable at a time from the dropdown.</li>
+              <li>Use <strong>Add Variable</strong> or <strong>Delete Selected</strong> to maintain your setup.</li>
+              <li>Each row (band) has band name, distribution %, and bad-rate-ratio.</li>
+              <li>Drag rows using the handle to reorder them.</li>
+              <li>The distribution total should be exactly 100.00% (green when valid, red if not).</li>
+              <li><strong>Factory Reset Variables</strong> restores defaults from <code>variables.factory.json</code>.</li>
+            </ul>
+          </article>
+
+          <article class="help-card">
+            <h3>Include In Data Creation</h3>
+            <p>
+              Use the include manager to decide which variables are active in generated data
+              without deleting your variable definitions.
+            </p>
+            <ul class="help-list">
+              <li>Unchecked variables stay configured but are ignored during data creation.</li>
+              <li>This is useful for testing simpler feature sets quickly.</li>
+            </ul>
+          </article>
+
+          <article class="help-card">
+            <h3>Data Generator</h3>
+            <p>Runs pipeline stages and shows background status.</p>
+            <ul class="help-list">
+              <li><strong>Run Data Creation</strong>: creates dataset, docs, preprocessing artefacts.</li>
+              <li><strong>Run Modeling</strong>: trains models and compares results.</li>
+              <li><strong>Modeling with WOE</strong>: trains using WOE-transformed inputs.</li>
+              <li><strong>Activity</strong>: live output/log messages.</li>
+              <li><strong>Job History</strong>: expanded view with previous run logs and outputs.</li>
+            </ul>
+          </article>
+
+          <article class="help-card">
+            <h3>Generated Artefacts</h3>
+            <p>Browse and download output files produced by the pipeline.</p>
+            <ul class="help-list">
+              <li>Filter by category, search by name, and use quick category pills.</li>
+              <li>Click <strong>Download</strong> to get files directly from the UI.</li>
+              <li><strong>Clear Artefacts</strong> archives current outputs to clean the workspace.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Bad-Rate-Ratio Explained</h2>
+        </div>
+        <p class="muted">
+          <strong>bad_rate_ratio</strong> controls relative risk between bands of the same variable.
+          It is not a direct percentage by itself.
+        </p>
+        <table class="ratio-table">
+          <thead>
+            <tr>
+              <th>Band</th>
+              <th>bad_rate_ratio</th>
+              <th>Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Low risk band</td>
+              <td>0.7</td>
+              <td>This band is less risky than baseline bands.</td>
+            </tr>
+            <tr>
+              <td>Baseline band</td>
+              <td>1.0</td>
+              <td>Reference risk level.</td>
+            </tr>
+            <tr>
+              <td>High risk band</td>
+              <td>1.8</td>
+              <td>This band is more risky than baseline bands.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="help-note">
+          Important: the model scales all variable bands together to hit the <strong>Global Bad Rate (%)</strong>.
+          So <strong>bad_rate_ratio</strong> changes relative ranking of risk, while the global bad rate controls the final overall level.
+        </p>
+        <p class="muted">
+          Practical tip: if a band should have roughly double the default tendency of a baseline band, start around
+          <code>2.0</code> and adjust after reviewing generated outputs.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

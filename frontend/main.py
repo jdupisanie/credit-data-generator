@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Any, Literal
 
 from fastapi import FastAPI, HTTPException, Request
-from fastapi.responses import HTMLResponse
+from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel, ConfigDict, Field
@@ -40,6 +40,12 @@ MODELING_SCRIPTS = [
     "analytics/data_analysis/compare_models.py",
 ]
 ARCHIVE_SCRIPT = "analytics/data_analysis/archive_outputs.py"
+ARTIFACT_ROOTS = [
+    PROJECT_ROOT / "analytics" / "data_analysis" / "artifacts",
+    PROJECT_ROOT / "analytics" / "data_analysis" / "model_comparison",
+    PROJECT_ROOT / "analytics" / "data_analysis" / "outputs",
+    PROJECT_ROOT / "analytics" / "data_analysis" / "models",
+]
 
 
 class Band(BaseModel):
@@ -199,6 +205,149 @@ def _count_included_variables(variables: list[dict[str, Any]]) -> int:
     return sum(1 for item in variables if _is_variable_included(item))
 
 
+def _to_rel_path(path: Path) -> str:
+    return path.relative_to(PROJECT_ROOT).as_posix()
+
+
+def _artifact_group_for_path(rel_path: str) -> str:
+    if rel_path.startswith("analytics/data_analysis/artifacts/00_documentation/"):
+        return "Data Dictionary"
+    if rel_path.startswith("analytics/data_analysis/artifacts/01_datasets/"):
+        return "Datasets"
+    if rel_path.startswith("analytics/data_analysis/artifacts/02_feature_selection/"):
+        return "Feature Selection"
+    if rel_path.startswith("analytics/data_analysis/artifacts/03_preprocessing/"):
+        return "Preprocessing"
+    if rel_path.startswith("analytics/data_analysis/artifacts/04_models/"):
+        return "Trained Models"
+    if rel_path.startswith("analytics/data_analysis/artifacts/05_model_comparison/"):
+        return "Model Comparison"
+    if rel_path.startswith("analytics/data_analysis/artifacts/06_visualizations/"):
+        return "Visualizations"
+    return "Other"
+
+
+def _artifact_entry(path: Path, status: str = "existing") -> dict[str, Any]:
+    stat = path.stat()
+    rel_path = _to_rel_path(path)
+    return {
+        "path": rel_path,
+        "name": path.name,
+        "group": _artifact_group_for_path(rel_path),
+        "size_bytes": int(stat.st_size),
+        "modified_at": datetime.fromtimestamp(stat.st_mtime, tz=timezone.utc).isoformat(),
+        "status": status,
+    }
+
+
+def _iter_artifact_files(roots: list[Path]) -> list[Path]:
+    files: list[Path] = []
+    for root in roots:
+        if not root.exists():
+            continue
+        for item in root.rglob("*"):
+            if item.is_file():
+                files.append(item)
+    return files
+
+
+def _snapshot_artifacts() -> dict[str, tuple[int, int]]:
+    snapshot: dict[str, tuple[int, int]] = {}
+    for item in _iter_artifact_files(ARTIFACT_ROOTS):
+        try:
+            stat = item.stat()
+            snapshot[_to_rel_path(item)] = (int(stat.st_size), int(stat.st_mtime_ns))
+        except OSError:
+            continue
+    return snapshot
+
+
+def _diff_artifacts(
+    before: dict[str, tuple[int, int]],
+    after: dict[str, tuple[int, int]],
+) -> list[dict[str, Any]]:
+    changes: list[dict[str, Any]] = []
+    for rel_path, (size, mtime_ns) in after.items():
+        previous = before.get(rel_path)
+        if previous is not None and previous == (size, mtime_ns):
+            continue
+        path = PROJECT_ROOT / rel_path
+        if not path.exists() or not path.is_file():
+            continue
+        status = "created" if previous is None else "updated"
+        changes.append(_artifact_entry(path, status=status))
+    changes.sort(key=lambda item: item["modified_at"], reverse=True)
+    return changes
+
+
+def _pipeline_roots(pipeline: str) -> list[Path]:
+    if pipeline == "data_creation":
+        return [
+            PROJECT_ROOT / "analytics" / "data_analysis" / "artifacts" / "00_documentation",
+            PROJECT_ROOT / "analytics" / "data_analysis" / "artifacts" / "01_datasets",
+            PROJECT_ROOT / "analytics" / "data_analysis" / "artifacts" / "02_feature_selection",
+            PROJECT_ROOT / "analytics" / "data_analysis" / "artifacts" / "03_preprocessing",
+            PROJECT_ROOT / "analytics" / "data_analysis" / "artifacts" / "06_visualizations",
+        ]
+    if pipeline == "modeling":
+        return [
+            PROJECT_ROOT / "analytics" / "data_analysis" / "artifacts" / "04_models",
+            PROJECT_ROOT / "analytics" / "data_analysis" / "artifacts" / "05_model_comparison",
+        ]
+    return []
+
+
+def _collect_recent_artifacts(pipeline: str, limit: int = 80) -> list[dict[str, Any]]:
+    items: list[dict[str, Any]] = []
+    for file_path in _iter_artifact_files(_pipeline_roots(pipeline)):
+        try:
+            items.append(_artifact_entry(file_path, status="existing"))
+        except OSError:
+            continue
+    items.sort(key=lambda item: item["modified_at"], reverse=True)
+    return items[:limit]
+
+
+def _merge_artifact_lists(
+    primary: list[dict[str, Any]],
+    secondary: list[dict[str, Any]],
+    limit: int = 120,
+) -> list[dict[str, Any]]:
+    merged: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for item in primary + secondary:
+        key = str(item.get("path"))
+        if key in seen:
+            continue
+        seen.add(key)
+        merged.append(item)
+        if len(merged) >= limit:
+            break
+    return merged
+
+
+def _all_artifacts(limit: int = 300) -> list[dict[str, Any]]:
+    items: list[dict[str, Any]] = []
+    for file_path in _iter_artifact_files(ARTIFACT_ROOTS):
+        try:
+            items.append(_artifact_entry(file_path))
+        except OSError:
+            continue
+    items.sort(key=lambda item: item["modified_at"], reverse=True)
+    return items[:limit]
+
+
+def _safe_artifact_path(rel_path: str) -> Path:
+    candidate = (PROJECT_ROOT / rel_path).resolve()
+    if not candidate.exists() or not candidate.is_file():
+        raise HTTPException(status_code=404, detail=f"Artifact not found: {rel_path}")
+    if not candidate.is_relative_to(PROJECT_ROOT.resolve()):
+        raise HTTPException(status_code=400, detail="Invalid artifact path.")
+    if not any(candidate.is_relative_to(root.resolve()) for root in ARTIFACT_ROOTS):
+        raise HTTPException(status_code=400, detail="Artifact path not allowed for download.")
+    return candidate
+
+
 def _append_job_log(job_id: str, message: str) -> None:
     with _job_lock:
         job = _job_store.get(job_id)
@@ -234,7 +383,8 @@ def _build_commands(payload: PipelineRequest) -> list[list[str]]:
 
 
 def _run_job(job_id: str, payload: PipelineRequest) -> None:
-    _set_job_state(job_id, status="running", started_at=_utc_now())
+    before_snapshot = _snapshot_artifacts()
+    _set_job_state(job_id, status="running", started_at=_utc_now(), artifacts=[])
     _append_job_log(job_id, f"Starting '{payload.pipeline}' pipeline...")
 
     try:
@@ -255,25 +405,45 @@ def _run_job(job_id: str, payload: PipelineRequest) -> None:
 
             return_code = process.wait()
             if return_code != 0:
+                after_snapshot = _snapshot_artifacts()
+                changed_artifacts = _diff_artifacts(before_snapshot, after_snapshot)
+                helpful_artifacts = _collect_recent_artifacts(payload.pipeline)
+                job_artifacts = _merge_artifact_lists(changed_artifacts, helpful_artifacts)
                 _set_job_state(
                     job_id,
                     status="failed",
                     completed_at=_utc_now(),
                     exit_code=return_code,
+                    artifacts=job_artifacts,
                 )
                 _append_job_log(job_id, f"Pipeline failed with exit code {return_code}.")
                 return
 
+        after_snapshot = _snapshot_artifacts()
+        changed_artifacts = _diff_artifacts(before_snapshot, after_snapshot)
+        helpful_artifacts = _collect_recent_artifacts(payload.pipeline)
+        job_artifacts = _merge_artifact_lists(changed_artifacts, helpful_artifacts)
         _set_job_state(job_id, status="completed", completed_at=_utc_now(), exit_code=0)
+        _set_job_state(job_id, artifacts=job_artifacts)
         _append_job_log(job_id, "Pipeline completed successfully.")
     except Exception as exc:  # pragma: no cover - defensive handling
+        after_snapshot = _snapshot_artifacts()
+        changed_artifacts = _diff_artifacts(before_snapshot, after_snapshot)
+        helpful_artifacts = _collect_recent_artifacts(payload.pipeline)
+        job_artifacts = _merge_artifact_lists(changed_artifacts, helpful_artifacts)
         _set_job_state(job_id, status="failed", completed_at=_utc_now(), exit_code=-1)
+        _set_job_state(job_id, artifacts=job_artifacts)
         _append_job_log(job_id, f"Execution error: {exc}")
 
 
 @app.get("/", response_class=HTMLResponse)
 def index(request: Request) -> HTMLResponse:
     return templates.TemplateResponse("index.html", {"request": request})
+
+
+@app.get("/help", response_class=HTMLResponse)
+def help_page(request: Request) -> HTMLResponse:
+    return templates.TemplateResponse("help.html", {"request": request})
 
 
 @app.get("/api/config")
@@ -334,6 +504,7 @@ def run_pipeline(payload: PipelineRequest) -> dict[str, Any]:
         "completed_at": None,
         "exit_code": None,
         "logs": [],
+        "artifacts": [],
         "options": {
             "use_woe": payload.use_woe,
             "dry_run": payload.dry_run,
@@ -363,6 +534,36 @@ def get_job(job_id: str) -> dict[str, Any]:
         if not job:
             raise HTTPException(status_code=404, detail=f"Job not found: {job_id}")
         return deepcopy(job)
+
+
+@app.get("/api/pipeline/jobs/{job_id}/artifacts")
+def get_job_artifacts(job_id: str) -> dict[str, Any]:
+    with _job_lock:
+        job = _job_store.get(job_id)
+        if not job:
+            raise HTTPException(status_code=404, detail=f"Job not found: {job_id}")
+        items = deepcopy(job.get("artifacts", []))
+    return {"job_id": job_id, "pipeline": job.get("pipeline"), "items": items}
+
+
+@app.get("/api/artifacts")
+def list_artifacts(limit: int = 300) -> dict[str, Any]:
+    safe_limit = max(1, min(limit, 1000))
+    items = _all_artifacts(limit=safe_limit)
+
+    grouped: dict[str, int] = {}
+    for item in items:
+        group = str(item.get("group", "Other"))
+        grouped[group] = grouped.get(group, 0) + 1
+
+    groups = [{"name": key, "count": value} for key, value in sorted(grouped.items())]
+    return {"total": len(items), "groups": groups, "items": items}
+
+
+@app.get("/api/artifacts/download")
+def download_artifact(path: str) -> FileResponse:
+    file_path = _safe_artifact_path(path)
+    return FileResponse(file_path, filename=file_path.name, media_type="application/octet-stream")
 
 
 @app.post("/api/config/variables/factory-reset")

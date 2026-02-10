@@ -30,7 +30,7 @@ def main() -> None:
 
     rng = np.random.default_rng(42)
 
-    output_dir = Path("outputs") / "simulator"
+    output_dir = Path("analytics") / "data_analysis" / "artifacts" / "01_datasets"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     data_model = {}
@@ -93,7 +93,7 @@ def main() -> None:
     df = pd.DataFrame(data_output)
     df["default"] = final_result.y_final
 
-    data_path = output_dir / "simulated_dataset.csv"
+    data_path = output_dir / "simulated_dataset_total.csv"
     df.to_csv(data_path, index=False)
 
     meta_path = output_dir / "simulated_metadata.json"

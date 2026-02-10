@@ -8,12 +8,12 @@
         "bands": [
           {
             "band": "18-24",
-            "distribution_pct": 10.0,
+            "distribution_pct": 9.0,
             "bad_rate_ratio": 2.1667
           },
           {
             "band": "25-34",
-            "distribution_pct": 20.0,
+            "distribution_pct": 21.0,
             "bad_rate_ratio": 1.6
           },
           {
@@ -32,14 +32,9 @@
             "bad_rate_ratio": 1.1667
           },
           {
-            "band": "65-75",
-            "distribution_pct": 3.0,
+            "band": "65+",
+            "distribution_pct": 6.0,
             "bad_rate_ratio": 1.7333
-          },
-          {
-            "band": "75+",
-            "distribution_pct": 3.0,
-            "bad_rate_ratio": 1.15
           }
         ],
         "include_in_data_creation": true,
@@ -394,7 +389,7 @@
             "bad_rate_ratio": 2.3226
           }
         ],
-        "include_in_data_creation": true,
+        "include_in_data_creation": false,
         "expected_range": {
           "min": 0,
           "max": 200000
@@ -430,7 +425,7 @@
             "bad_rate_ratio": 2.888
           }
         ],
-        "include_in_data_creation": true,
+        "include_in_data_creation": false,
         "expected_range": {
           "min": 0,
           "max": 1.5
@@ -466,7 +461,7 @@
             "bad_rate_ratio": 2.4
           }
         ],
-        "include_in_data_creation": true,
+        "include_in_data_creation": false,
         "expected_range": {
           "min": 0,
           "max": 20
@@ -497,7 +492,7 @@
             "bad_rate_ratio": 2.9
           }
         ],
-        "include_in_data_creation": true,
+        "include_in_data_creation": false,
         "expected_range": {
           "min": 0,
           "max": 20
@@ -528,7 +523,7 @@
             "bad_rate_ratio": 2.3
           }
         ],
-        "include_in_data_creation": true
+        "include_in_data_creation": false
       },
       {
         "name": "months_since_last_delinquency",
@@ -560,7 +555,7 @@
             "bad_rate_ratio": 1.41
           }
         ],
-        "include_in_data_creation": true,
+        "include_in_data_creation": false,
         "expected_range": {
           "min": 0,
           "max": 240
@@ -591,7 +586,7 @@
             "bad_rate_ratio": 5.1923
           }
         ],
-        "include_in_data_creation": true
+        "include_in_data_creation": false
       },
       {
         "name": "credit_history_length_months",
@@ -623,7 +618,7 @@
             "bad_rate_ratio": 1.0
           }
         ],
-        "include_in_data_creation": true,
+        "include_in_data_creation": false,
         "expected_range": {
           "min": 0,
           "max": 600
@@ -659,7 +654,7 @@
             "bad_rate_ratio": 3.5
           }
         ],
-        "include_in_data_creation": true,
+        "include_in_data_creation": false,
         "expected_range": {
           "min": 0,
           "max": 20
@@ -680,7 +675,7 @@
             "bad_rate_ratio": 2.2
           }
         ],
-        "include_in_data_creation": true
+        "include_in_data_creation": false
       }
     ]
   }

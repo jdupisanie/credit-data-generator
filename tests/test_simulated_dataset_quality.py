@@ -20,20 +20,20 @@ def _load_dataset(dataset_path: Path):
         reader = csv.DictReader(handle)
         rows = list(reader)
     if not rows:
-        raise AssertionError("simulated_dataset.csv is empty.")
+        raise AssertionError("simulated_dataset_total.csv is empty.")
     return rows
 
 
 def test_simulated_dataset_matches_metadata():
-    dataset_path = Path("outputs") / "simulator" / "simulated_dataset.csv"
-    metadata_path = Path("outputs") / "simulator" / "simulated_metadata.json"
-    report_path = Path("outputs") / "simulator" / "simulated_quality_report.json"
+    dataset_path = Path("analytics") / "data_analysis" / "artifacts" / "01_datasets" / "simulated_dataset_total.csv"
+    metadata_path = Path("analytics") / "data_analysis" / "artifacts" / "01_datasets" / "simulated_metadata.json"
+    report_path = Path("analytics") / "data_analysis" / "artifacts" / "01_datasets" / "simulated_quality_report.json"
     variables_path = Path("input_parameters") / "variables.json"
 
     if not dataset_path.exists():
-        pytest.skip("Missing outputs/simulator/simulated_dataset.csv. Run main.py to run this quality test.")
+        pytest.skip("Missing analytics/data_analysis/artifacts/01_datasets/simulated_dataset_total.csv. Run main.py to run this quality test.")
     if not metadata_path.exists():
-        pytest.skip("Missing outputs/simulator/simulated_metadata.json. Run main.py to run this quality test.")
+        pytest.skip("Missing analytics/data_analysis/artifacts/01_datasets/simulated_metadata.json. Run main.py to run this quality test.")
 
     rows = _load_dataset(dataset_path)
     metadata = json.loads(metadata_path.read_text(encoding="utf-8"))

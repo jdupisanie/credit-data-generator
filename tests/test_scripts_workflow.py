@@ -34,8 +34,8 @@ def test_main_generates_dataset_and_metadata(
     monkeypatch.chdir(tmp_path)
     main_mod.main()
 
-    dataset_path = tmp_path / "outputs" / "simulator" / "simulated_dataset.csv"
-    metadata_path = tmp_path / "outputs" / "simulator" / "simulated_metadata.json"
+    dataset_path = tmp_path / "analytics" / "data_analysis" / "artifacts" / "01_datasets" / "simulated_dataset_total.csv"
+    metadata_path = tmp_path / "analytics" / "data_analysis" / "artifacts" / "01_datasets" / "simulated_metadata.json"
     assert dataset_path.exists()
     assert metadata_path.exists()
 
@@ -279,7 +279,7 @@ def test_variable_band_charts_creates_pngs(
     monkeypatch,
     project_root: Path,
 ):
-    out_sim = tmp_path / "outputs" / "simulator"
+    out_sim = tmp_path / "analytics" / "data_analysis" / "artifacts" / "01_datasets"
     out_sim.mkdir(parents=True, exist_ok=True)
     df = pd.DataFrame(
         {
@@ -288,7 +288,7 @@ def test_variable_band_charts_creates_pngs(
             "default": [1, 0, 0, 1, 0, 1],
         }
     )
-    df.to_csv(out_sim / "simulated_dataset.csv", index=False)
+    df.to_csv(out_sim / "simulated_dataset_total.csv", index=False)
 
     metadata = {
         "variables": [
@@ -317,9 +317,9 @@ def test_archive_outputs_dry_run_and_move(
     monkeypatch,
     project_root: Path,
 ):
-    sim_dir = tmp_path / "outputs" / "simulator"
+    sim_dir = tmp_path / "analytics" / "data_analysis" / "artifacts" / "01_datasets"
     sim_dir.mkdir(parents=True, exist_ok=True)
-    (sim_dir / "simulated_dataset.csv").write_text("a,b\n1,2\n", encoding="utf-8")
+    (sim_dir / "simulated_dataset_total.csv").write_text("a,b\n1,2\n", encoding="utf-8")
 
     artifacts_dir = tmp_path / "analytics" / "data_analysis" / "artifacts"
     artifacts_dir.mkdir(parents=True, exist_ok=True)
