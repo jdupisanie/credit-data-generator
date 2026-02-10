@@ -27,6 +27,13 @@ __pycache__/
 venv/
 archive/
 
+# Generated pipeline artifacts
+analytics/data_analysis/artifacts/
+analytics/data_analysis/models/
+analytics/data_analysis/model_comparison/
+analytics/data_analysis/outputs/
+analytics/data_analysis/01_datasets/
+
 # Dotnet
 bin/
 obj/
