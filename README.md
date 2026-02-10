@@ -19,3 +19,7 @@ Synthetic credit-risk data generation and downstream modeling workflow (logistic
 
 For detailed stage-by-stage paths, see `analytics/data_analysis/README.md`.
 For a full walkthrough, see `USER_GUIDE.md`.
+
+## License
+
+This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.

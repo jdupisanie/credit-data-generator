@@ -22,6 +22,7 @@ build/
 # Python
 __pycache__/
 *.pyc
+.pycache_tmp/
 .venv/
 venv/
 archive/

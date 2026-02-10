@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Credit Risk Pipeline UI</title>
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body>
+    <main class="layout">
+      <header class="hero">
+        <h1>Credit Risk Pipeline Control Center</h1>
+        <p>Edit simulation variables and run pipeline stages from the browser.</p>
+      </header>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Global Parameters</h2>
+          <div class="actions">
+            <button id="reload-config" class="btn btn-secondary" type="button">Reload</button>
+            <button id="validate-config" class="btn btn-secondary" type="button">Validate</button>
+            <button id="save-config" class="btn btn-primary" type="button">Save</button>
+          </div>
+        </div>
+        <div id="global-params" class="grid"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Variables</h2>
+          <div class="actions">
+            <button id="add-variable" class="btn btn-secondary" type="button">Add Variable</button>
+            <button id="delete-variable" class="btn btn-secondary" type="button">Delete Selected</button>
+            <button id="factory-reset-variables" class="btn btn-secondary" type="button">Factory Reset Variables</button>
+          </div>
+        </div>
+        <div class="variable-toolbar">
+          <label class="field compact">
+            <span>Select variable</span>
+            <select id="variable-select"></select>
+          </label>
+        </div>
+        <div id="variable-inclusion" class="inclusion-list"></div>
+        <div id="variable-editor" class="variables"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Pipeline</h2>
+          <div class="pipeline-options">
+            <label><input id="opt-use-woe" type="checkbox" checked> Modeling with WOE</label>
+            <label><input id="opt-dry-run" type="checkbox"> Archive dry-run</label>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-primary run-btn" data-pipeline="data_creation" type="button">Run Data Creation</button>
+          <button class="btn btn-primary run-btn" data-pipeline="modeling" type="button">Run Modeling</button>
+          <button class="btn btn-primary run-btn" data-pipeline="archive" type="button">Run Archive</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Validation / Activity</h2>
+        </div>
+        <div id="messages" class="messages"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Pipeline Jobs</h2>
+        </div>
+        <div id="jobs" class="jobs"></div>
+      </section>
+    </main>
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>

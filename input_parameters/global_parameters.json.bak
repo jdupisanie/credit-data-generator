@@ -1,7 +1,6 @@
 {
   "global_bad_rate_pct": 4.0,
   "simulation_population": 10000,
-  "final_population": 10000,
-  "train_set_pct": 80.0,
-  "test_set_pct": 20.0
+  "train_set_pct": 70.0,
+  "test_set_pct": 30.0
 }

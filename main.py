@@ -38,7 +38,12 @@ def main() -> None:
     target = None
     computed_meta = []
 
-    for idx, var in enumerate(variables["dataset_spec"]["variables"]):
+    all_variables = variables["dataset_spec"]["variables"]
+    selected_variables = [
+        var for var in all_variables if bool(var.get("include_in_data_creation", True))
+    ]
+
+    for idx, var in enumerate(selected_variables):
         computed, X, Y = _simulate_single_variable(var, n, global_bad_rate, rng)
         data_model[computed.name] = X
         if var.get("type") == "numeric":
@@ -60,7 +65,10 @@ def main() -> None:
         )
 
     if target is None:
-        raise ValueError("No variables found to simulate.")
+        raise ValueError(
+            "No enabled variables found to simulate. "
+            "Set include_in_data_creation=true for at least one variable."
+        )
 
     df_X = pd.DataFrame(data_model)
 

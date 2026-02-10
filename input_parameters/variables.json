@@ -4,15 +4,16 @@
     "variables": [
       {
         "name": "age_years",
+        "type": "numeric",
         "bands": [
           {
             "band": "18-24",
-            "distribution_pct": 9.0,
+            "distribution_pct": 10.0,
             "bad_rate_ratio": 2.1667
           },
           {
             "band": "25-34",
-            "distribution_pct": 21.0,
+            "distribution_pct": 20.0,
             "bad_rate_ratio": 1.6
           },
           {
@@ -31,12 +32,17 @@
             "bad_rate_ratio": 1.1667
           },
           {
-            "band": "65+",
-            "distribution_pct": 6.0,
+            "band": "65-75",
+            "distribution_pct": 3.0,
             "bad_rate_ratio": 1.7333
+          },
+          {
+            "band": "75+",
+            "distribution_pct": 3.0,
+            "bad_rate_ratio": 1.15
           }
         ],
-        "type": "numeric",
+        "include_in_data_creation": true,
         "expected_range": {
           "min": 18,
           "max": 120
@@ -44,6 +50,7 @@
       },
       {
         "name": "residential_status",
+        "type": "categorical",
         "bands": [
           {
             "band": "owner_no_mortgage",
@@ -71,10 +78,11 @@
             "bad_rate_ratio": 1.8
           }
         ],
-        "type": "categorical"
+        "include_in_data_creation": true
       },
       {
         "name": "time_at_address_months",
+        "type": "numeric",
         "bands": [
           {
             "band": "<6",
@@ -102,7 +110,7 @@
             "bad_rate_ratio": 1.0
           }
         ],
-        "type": "numeric",
+        "include_in_data_creation": true,
         "expected_range": {
           "min": 0,
           "max": 600
@@ -110,6 +118,7 @@
       },
       {
         "name": "employment_status",
+        "type": "categorical",
         "bands": [
           {
             "band": "permanent",
@@ -137,10 +146,11 @@
             "bad_rate_ratio": 2.3
           }
         ],
-        "type": "categorical"
+        "include_in_data_creation": true
       },
       {
         "name": "time_with_employer_months",
+        "type": "numeric",
         "bands": [
           {
             "band": "<6",
@@ -168,7 +178,7 @@
             "bad_rate_ratio": 1.0
           }
         ],
-        "type": "numeric",
+        "include_in_data_creation": true,
         "expected_range": {
           "min": 0,
           "max": 600
@@ -176,6 +186,7 @@
       },
       {
         "name": "gross_monthly_income_eur",
+        "type": "numeric",
         "bands": [
           {
             "band": "<1500",
@@ -203,7 +214,7 @@
             "bad_rate_ratio": 1.0
           }
         ],
-        "type": "numeric",
+        "include_in_data_creation": true,
         "expected_range": {
           "min": 0,
           "max": 20000
@@ -211,6 +222,7 @@
       },
       {
         "name": "net_monthly_income_eur",
+        "type": "numeric",
         "bands": [
           {
             "band": "<1200",
@@ -238,7 +250,7 @@
             "bad_rate_ratio": 1.0
           }
         ],
-        "type": "numeric",
+        "include_in_data_creation": true,
         "expected_range": {
           "min": 0,
           "max": 15000
@@ -246,6 +258,7 @@
       },
       {
         "name": "debt_to_income_ratio",
+        "type": "numeric",
         "bands": [
           {
             "band": "<0.20",
@@ -273,14 +286,15 @@
             "bad_rate_ratio": 2.8
           }
         ],
-        "type": "numeric",
+        "include_in_data_creation": true,
         "expected_range": {
-          "min": 0.0,
+          "min": 0,
           "max": 1.5
         }
       },
       {
         "name": "disposable_income_eur",
+        "type": "numeric",
         "bands": [
           {
             "band": "<0",
@@ -308,7 +322,7 @@
             "bad_rate_ratio": 1.0
           }
         ],
-        "type": "numeric",
+        "include_in_data_creation": true,
         "expected_range": {
           "min": -5000,
           "max": 20000
@@ -316,6 +330,7 @@
       },
       {
         "name": "num_active_credit_accounts",
+        "type": "numeric",
         "bands": [
           {
             "band": "0-1",
@@ -343,7 +358,7 @@
             "bad_rate_ratio": 2.0294
           }
         ],
-        "type": "numeric",
+        "include_in_data_creation": true,
         "expected_range": {
           "min": 0,
           "max": 50
@@ -351,6 +366,7 @@
       },
       {
         "name": "total_outstanding_balance_eur",
+        "type": "numeric",
         "bands": [
           {
             "band": "<2000",
@@ -378,7 +394,7 @@
             "bad_rate_ratio": 2.3226
           }
         ],
-        "type": "numeric",
+        "include_in_data_creation": true,
         "expected_range": {
           "min": 0,
           "max": 200000
@@ -386,6 +402,7 @@
       },
       {
         "name": "credit_utilisation_ratio",
+        "type": "numeric",
         "bands": [
           {
             "band": "<0.20",
@@ -413,14 +430,15 @@
             "bad_rate_ratio": 2.888
           }
         ],
-        "type": "numeric",
+        "include_in_data_creation": true,
         "expected_range": {
-          "min": 0.0,
+          "min": 0,
           "max": 1.5
         }
       },
       {
         "name": "num_unsecured_loans",
+        "type": "numeric",
         "bands": [
           {
             "band": "0",
@@ -448,7 +466,7 @@
             "bad_rate_ratio": 2.4
           }
         ],
-        "type": "numeric",
+        "include_in_data_creation": true,
         "expected_range": {
           "min": 0,
           "max": 20
@@ -456,6 +474,7 @@
       },
       {
         "name": "num_accounts_30dpd_last12m",
+        "type": "numeric",
         "bands": [
           {
             "band": "0",
@@ -478,7 +497,7 @@
             "bad_rate_ratio": 2.9
           }
         ],
-        "type": "numeric",
+        "include_in_data_creation": true,
         "expected_range": {
           "min": 0,
           "max": 20
@@ -486,6 +505,7 @@
       },
       {
         "name": "max_delinquency_last12m",
+        "type": "ordinal",
         "bands": [
           {
             "band": "current",
@@ -508,10 +528,11 @@
             "bad_rate_ratio": 2.3
           }
         ],
-        "type": "ordinal"
+        "include_in_data_creation": true
       },
       {
         "name": "months_since_last_delinquency",
+        "type": "numeric",
         "bands": [
           {
             "band": "never",
@@ -539,7 +560,7 @@
             "bad_rate_ratio": 1.41
           }
         ],
-        "type": "numeric",
+        "include_in_data_creation": true,
         "expected_range": {
           "min": 0,
           "max": 240
@@ -547,6 +568,7 @@
       },
       {
         "name": "worst_ever_delinquency",
+        "type": "ordinal",
         "bands": [
           {
             "band": "none",
@@ -569,10 +591,11 @@
             "bad_rate_ratio": 5.1923
           }
         ],
-        "type": "ordinal"
+        "include_in_data_creation": true
       },
       {
         "name": "credit_history_length_months",
+        "type": "numeric",
         "bands": [
           {
             "band": "<12",
@@ -600,7 +623,7 @@
             "bad_rate_ratio": 1.0
           }
         ],
-        "type": "numeric",
+        "include_in_data_creation": true,
         "expected_range": {
           "min": 0,
           "max": 600
@@ -608,6 +631,7 @@
       },
       {
         "name": "num_credit_enquiries_last6m",
+        "type": "numeric",
         "bands": [
           {
             "band": "0",
@@ -635,7 +659,7 @@
             "bad_rate_ratio": 3.5
           }
         ],
-        "type": "numeric",
+        "include_in_data_creation": true,
         "expected_range": {
           "min": 0,
           "max": 20
@@ -643,6 +667,7 @@
       },
       {
         "name": "adverse_events_flag",
+        "type": "binary",
         "bands": [
           {
             "band": "no",
@@ -655,7 +680,7 @@
             "bad_rate_ratio": 2.2
           }
         ],
-        "type": "binary"
+        "include_in_data_creation": true
       }
     ]
   }
