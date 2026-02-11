@@ -1,5 +1,7 @@
 # Credit Risk Modeling
 
+![GitHub release](https://img.shields.io/github/v/release/jdupisanie/credit-data-generator)
+
 ## Overview
 Synthetic credit-risk data generation and downstream modeling workflow (logistic + neural network + Cox), with consistent model comparison outputs.
 
