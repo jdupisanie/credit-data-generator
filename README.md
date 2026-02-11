@@ -30,3 +30,9 @@ For a full walkthrough, see `USER_GUIDE.md`.
 ## License
 
 This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
+
+## Citation
+
+If you use this project in academic work, please cite it as:
+
+du Pisanie, J. (2026). *Credit Data Generator (Version 1.0.0)* [Computer software]. GitHub. https://github.com/jdupisanie/credit-data-generator

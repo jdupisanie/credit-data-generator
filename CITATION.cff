@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+title: "Credit Data Generator"
+message: "If you use this software in academic work, please cite it as follows."
+type: software
+authors:
+  - family-names: "du Pisanie"
+    given-names: "Johan"
+repository-code: "https://github.com/jdupisanie/credit-data-generator"
+version: "1.0.0"
+date-released: 2026-02-11
+license: "MIT"
