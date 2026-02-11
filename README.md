@@ -5,6 +5,16 @@
 ## Overview
 Synthetic credit-risk data generation and downstream modeling workflow (logistic + neural network + Cox), with consistent model comparison outputs.
 
+## Academic Background
+
+This project implements and operationalizes the simulation methodology introduced in:
+
+**du Pisanie, J., Allison, J. S., & Visagie, J. (2023). _A Proposed Simulation Technique for Population Stability Testing in Credit Risk Scorecards_. Mathematics, 11(2), 492.**  
+📄 https://doi.org/10.3390/math11020492
+
+The published article provides the theoretical foundation and motivation for the synthetic data generation techniques used in this software. Researchers using this tool in academic work should cite both the repository and the original article.
+
+
 ## Project structure
 - `input_parameters/`: simulation configuration (`variables.json`, `global_parameters.json`)
 - `src/`: simulation core logic
@@ -33,6 +43,33 @@ This project is licensed under the MIT License – see the [LICENSE](LICENSE) fi
 
 ## Citation
 
-If you use this project in academic work, please cite it as:
+If you use this software in a publication or academic project, please cite both:
+
+**Software**
 
 du Pisanie, J. (2026). *Credit Data Generator (Version 1.0.0)* [Computer software]. GitHub. https://github.com/jdupisanie/credit-data-generator
+
+
+@software{credit-data-generator,
+author = {du Pisanie, Johan},
+title = {Credit Data Generator},
+year = {2026},
+publisher = {GitHub},
+doi = {},
+url = {https://github.com/jdupisanie/credit-data-generator},
+version = {1.0.0},
+}
+
+**Methodology article:**
+
+@article{duPisanie2023population,
+author = {du Pisanie, Johan and Allison, James S. and Visagie, Jaco},
+title = {A Proposed Simulation Technique for Population Stability Testing in Credit Risk Scorecards},
+journal = {Mathematics},
+year = {2023},
+volume = {11},
+number = {2},
+pages = {492},
+doi = {10.3390/math11020492},
+url = {https://doi.org/10.3390/math11020492},
+}

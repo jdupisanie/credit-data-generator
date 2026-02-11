@@ -9,3 +9,19 @@ repository-code: "https://github.com/jdupisanie/credit-data-generator"
 version: "1.0.0"
 date-released: 2026-02-11
 license: "MIT"
+references:
+  - type: article
+    title: "A Proposed Simulation Technique for Population Stability Testing in Credit Risk Scorecards"
+    authors:
+      - family-names: "du Pisanie"
+        given-names: "Johan"
+      - family-names: "Allison"
+        given-names: "James S."
+      - family-names: "Visagie"
+        given-names: "Jaco"
+    journal: "Mathematics"
+    year: 2023
+    volume: "11"
+    issue: "2"
+    doi: "10.3390/math11020492"
+    url: "https://doi.org/10.3390/math11020492"
