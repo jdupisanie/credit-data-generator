@@ -49,27 +49,6 @@ If you use this software in a publication or academic project, please cite both:
 
 du Pisanie, J. (2026). *Credit Data Generator (Version 1.0.0)* [Computer software]. GitHub. https://github.com/jdupisanie/credit-data-generator
 
-
-@software{credit-data-generator,
-author = {du Pisanie, Johan},
-title = {Credit Data Generator},
-year = {2026},
-publisher = {GitHub},
-doi = {},
-url = {https://github.com/jdupisanie/credit-data-generator},
-version = {1.0.0},
-}
-
 **Methodology article:**
 
-@article{duPisanie2023population,
-author = {du Pisanie, Johan and Allison, James S. and Visagie, Jaco},
-title = {A Proposed Simulation Technique for Population Stability Testing in Credit Risk Scorecards},
-journal = {Mathematics},
-year = {2023},
-volume = {11},
-number = {2},
-pages = {492},
-doi = {10.3390/math11020492},
-url = {https://doi.org/10.3390/math11020492},
-}
+du Pisanie J, Allison JS, Visagie J. A Proposed Simulation Technique for Population Stability Testing in Credit Risk Scorecards. Mathematics. 2023; 11(2):492. https://doi.org/10.3390/math11020492
